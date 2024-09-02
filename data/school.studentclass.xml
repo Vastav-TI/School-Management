@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Define Class 1 -->
+    <record id="class_1" model="school.studentclass">
+        <field name="name">XI</field>
+        <field name="status">active</field>
+        <!-- You can also add students later by using One2many relationships -->
+    </record>
+
+    <!-- Define Class 2 -->
+    <record id="class_2" model="school.studentclass">
+        <field name="name">XII</field>
+        <field name="status">active</field>
+    </record>
+</odoo>

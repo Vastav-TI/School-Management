@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Class List View -->
+    <record id="view_class_tree" model="ir.ui.view">
+        <field name="name">class.tree</field>
+        <field name="model">school.studentclass</field>
+        <field name="arch" type="xml">
+            <tree string="Classes">
+                <field name="name"/>
+                <field name="strength"/>
+                <field name="status"/>
+                <field name="student_ids"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Class Form View -->
+    <record id="view_class_form" model="ir.ui.view">
+        <field name="name">class.form</field>
+        <field name="model">school.studentclass</field>
+        <field name="arch" type="xml">
+            <form string="Classes">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="strength"/>
+                        <field name="status"/>
+                    </group>
+                    <group>
+                        <field name="student_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Student List and Form -->
+    <record id="action_class_list" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="res_model">school.studentclass</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_class_tree"/>
+    </record>
+
+
+
+</odoo>

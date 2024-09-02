@@ -1,0 +1,30 @@
+<odoo>
+    <!-- Student Records -->
+    <record id="student_1" model="school.student">
+        <field name="name">John Doe</field>
+        <field name="birth_date">2010-04-25</field>
+        <field name="gender">male</field>
+        <field name="student_id">STU003</field>
+        <field name="admission_date">2024-08-30</field>
+        <field name="email">johndoe@example.com</field>
+        <field name="phone">1234567890</field>
+        <field name="address">123 Main Street</field>
+        <field name="guardian_name">Jane Doe</field>
+        <field name="guardian_phone">0987654321</field>
+        <field name="class_id" ref="class_1"/>
+    </record>
+
+    <record id="student_2" model="school.student">
+        <field name="name">Jane Smith</field>
+        <field name="birth_date">2011-06-15</field>
+        <field name="gender">female</field>
+        <field name="student_id">STU004</field>
+        <field name="admission_date">2024-08-30</field>
+        <field name="email">janesmith@example.com</field>
+        <field name="phone">2345678901</field>
+        <field name="address">456 Another St</field>
+        <field name="guardian_name">John Smith</field>
+        <field name="guardian_phone">8765432109</field>
+        <field name="class_id" ref="class_2"/>
+    </record>
+</odoo>
