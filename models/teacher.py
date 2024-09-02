@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields,api
+from odoo.exceptions import ValidationError
 
 class Teacher(models.Model):
     _name = 'school.teacher'
@@ -18,3 +19,15 @@ class Teacher(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
     class_id=fields.Many2one('school.studentclass',string="Class")
     photo = fields.Binary(string='Photo')
+
+    @api.constrains('age')
+    def _check_age(self):
+        for record in self:
+            if record.age < 0:
+                raise ValidationError("Age cannot be negative.")
+            
+    @api.constrains('salary')
+    def _check_salary(self):
+        for record in self:
+            if record.salary < 0:
+                raise ValidationError("Salary cannot be negative.")
