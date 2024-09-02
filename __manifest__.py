@@ -15,7 +15,8 @@
         'views/student_view.xml',    # Add student views first
         'views/class_view.xml',      # Then class views
         'views/subject_view.xml',    # Then subject views
-        'views/teacher_view.xml',    # Finally teacher views
+        'views/teacher_view.xml',    # Then teacher views
+        'views/event_view.xml',      # Then event view
         'views/menu.xml',            # Menu views last
     ],
     'installable': True,

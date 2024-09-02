@@ -17,4 +17,7 @@
     <!-- Menu for Subjects (Accessible by School Admin and School User) -->
     <menuitem id="menu_subjects" name="Subjects" parent="menu_school_root" action="action_subject_list"
               groups="real_estate.group_school_admin,real_estate.group_school_user"/>
+   
+    <!-- adding menu for event -->
+    <menuitem id="menu_school_event" name="School Events" parent="menu_school_root" action="action_school_event" />
 </odoo>

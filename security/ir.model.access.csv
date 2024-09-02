@@ -7,3 +7,5 @@ access_school_student_admin,access_school_student_admin,model_school_student,bas
 access_school_studentclass_admin,access_school_studentclass_admin,model_school_studentclass,base.group_erp_manager,1,1,1,1
 access_school_subject_admin,access_school_subject_admin,model_school_subject,base.group_erp_manager,1,1,1,1
 access_school_teacher_admin,access_school_teacher_admin,model_school_teacher,base.group_erp_manager,1,1,1,1
+access_school_event_user,access_school_event_user,model_school_event,base.group_user,1,0,0,0
+access_school_event_admin,access_school_event_admin,model_school_event,base.group_erp_manager,1,1,1,1
