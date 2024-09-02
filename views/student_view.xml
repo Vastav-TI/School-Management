@@ -15,6 +15,7 @@
                 <field name="guardian_name"/>
                 <field name="guardian_phone"/>
                 <field name="class_id"/>
+                <field name="age"/>
             </tree>
         </field>
     </record>
@@ -73,6 +74,7 @@
                                     <div><field name="gender"/></div>
                                     <div><field name="admission_date"/></div>
                                     <div><field name="birth_date"/></div>
+                                    <div><field name="age"/></div>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields,api
 from datetime import date
 
 class Student(models.Model):
@@ -17,3 +17,22 @@ class Student(models.Model):
     guardian_phone = fields.Char(string='Guardian Phone Number',required=True)
     # blood_group = fields.Selection([('A+', 'A+'), ('A-', 'A-'), ('B+', 'B+'), ('B-', 'B-'), ('AB+', 'AB+'), ('AB-', 'AB-'), ('O+', 'O+'), ('O-', 'O-')], string='Blood Group')
     class_id=fields.Many2one('school.studentclass',string="Class")
+
+    # adding age using compute
+    age = fields.Integer(string='Age', compute='_compute_age',store=True,readonly=True)
+
+    # adding logic for age cal
+    @api.depends('birth_date')
+    def _compute_age(self):
+        for record in self:
+            if record.birth_date:
+                today = date.today()  # Get the current date
+                birth_date = record.birth_date  # Extract birth date
+                # Calculate preliminary age
+                age = today.year - birth_date.year
+                # Adjust if birthday has not occurred yet this year
+                if (today.month, today.day) < (birth_date.month, birth_date.day):
+                    age -= 1
+                record.age = age  # Set the computed age
+            else:
+                record.age = 0  # Set age to 0 if birth_date is not set
