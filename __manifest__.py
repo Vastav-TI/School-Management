@@ -7,8 +7,8 @@
     # 'website': 'https://yourwebsite.com',
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
         'security/groups.xml',
+        'security/ir.model.access.csv',
         'data/school.subject.csv',
         'data/school.studentclass.xml',
         'data/school.student.xml',

@@ -4,19 +4,16 @@
 
     <!-- Menu for Students (Accessible by School Admin) -->
     <menuitem id="menu_students" name="Students" parent="menu_school_root" action="action_student_list"
-              groups="real_estate.group_school_admin"/>
+              />
 
     <!-- Menu for Classes (Accessible by School Admin) -->
-    <menuitem id="menu_classes" name="Classes" parent="menu_school_root" action="action_class_list"
-              groups="real_estate.group_school_admin"/>
+    <menuitem id="menu_classes" name="Classes" parent="menu_school_root" action="action_class_list"/>
 
     <!-- Menu for Teachers (Accessible by School Admin and School User) -->
-    <menuitem id="menu_teachers" name="Teachers" parent="menu_school_root" action="action_teacher_list"
-              groups="real_estate.group_school_admin,real_estate.group_school_user"/>
+    <menuitem id="menu_teachers" name="Teachers" parent="menu_school_root" action="action_teacher_list"/>
 
     <!-- Menu for Subjects (Accessible by School Admin and School User) -->
-    <menuitem id="menu_subjects" name="Subjects" parent="menu_school_root" action="action_subject_list"
-              groups="real_estate.group_school_admin,real_estate.group_school_user"/>
+    <menuitem id="menu_subjects" name="Subjects" parent="menu_school_root" action="action_subject_list"/>
    
     <!-- adding menu for event -->
     <menuitem id="menu_school_event" name="School Events" parent="menu_school_root" action="action_school_event" />

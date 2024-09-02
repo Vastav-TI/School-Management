@@ -18,7 +18,7 @@
         <field name="name">school.event.form</field>
         <field name="model">school.event</field>
         <field name="arch" type="xml">
-            <form string="School Event" groups="base.group_erp_manager">
+            <form string="School Event">
                 <sheet>
                     <group>
                         <field name="name"/>
