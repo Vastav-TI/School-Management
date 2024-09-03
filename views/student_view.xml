@@ -28,23 +28,25 @@
             <form string="Student">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="student_id"/>
-                        <field name="birth_date"/>
-                        <field name="gender"/>
-                        <field name="admission_date"/>
-                        <field name="class_id"/>
-                    </group>
-                    <group>
-                        <field name="email"/>
-                        <field name="phone"/>
-                    </group>
-                    <group>
-                        <field name="address"/>
-                    </group>
-                    <group>
-                        <field name="guardian_name"/>
-                        <field name="guardian_phone"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="student_id"/>
+                            <field name="birth_date"/>
+                            <field name="gender"/>
+                            <field name="admission_date"/>
+                            <field name="class_id"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="guardian_name"/>
+                            <field name="guardian_phone"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

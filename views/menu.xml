@@ -17,4 +17,11 @@
    
     <!-- adding menu for event -->
     <menuitem id="menu_school_event" name="School Events" parent="menu_school_root" action="action_school_event" />
+
+
+        <!-- Menu Item for Student Grade -->
+    <menuitem id="menu_student_grade"
+              name="Student Grades"
+              parent="menu_school_root"
+              action="action_student_grade"/>
 </odoo>

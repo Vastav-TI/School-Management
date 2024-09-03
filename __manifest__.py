@@ -17,6 +17,7 @@
         'views/subject_view.xml',    # Then subject views
         'views/teacher_view.xml',    # Then teacher views
         'views/event_view.xml',      # Then event view
+        'views/student_grade_view.xml',
         'views/menu.xml',            # Menu views last
     ],
     'installable': True,
