@@ -22,36 +22,36 @@
 
     <!-- Student Form View -->
     <record id="view_student_form" model="ir.ui.view">
-        <field name="name">student.form</field>
-        <field name="model">school.student</field>
-        <field name="arch" type="xml">
-            <form string="Student">
-                <sheet>
+    <field name="name">student.form</field>
+    <field name="model">school.student</field>
+    <field name="arch" type="xml">
+        <form string="Student">
+            <sheet>
+                <group>
                     <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="student_id"/>
-                            <field name="birth_date"/>
-                            <field name="gender"/>
-                            <field name="admission_date"/>
-                            <field name="class_id"/>
-                        </group>
-                        <group>
-                            <field name="email"/>
-                            <field name="phone"/>
-                        </group>
-                        <group>
-                            <field name="address"/>
-                        </group>
-                        <group>
-                            <field name="guardian_name"/>
-                            <field name="guardian_phone"/>
-                        </group>
+                        <field name="name" placeholder="Enter student name"/>
+                        <field name="student_id" placeholder="Enter student ID"/>
+                        <field name="birth_date" placeholder="Enter birth date"/>
+                        <field name="gender" placeholder="Select gender"/>
+                        <field name="admission_date" placeholder="Enter admission date"/>
+                        <field name="class_id" placeholder="Select class"/>
                     </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                    <group>
+                        <field name="email" placeholder="Enter email"/>
+                        <field name="phone" placeholder="Enter phone number"/>
+                    </group>
+                    <group>
+                        <field name="address" placeholder="Enter address"/>
+                    </group>
+                    <group>
+                        <field name="guardian_name" placeholder="Enter guardian name"/>
+                        <field name="guardian_phone" placeholder="Enter guardian phone number"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
 
     <!-- Student Kanban View -->
     <record id="view_student_kanban" model="ir.ui.view">
