@@ -1,0 +1,4 @@
+.o_form_field input::placeholder {
+    color: #FF0000; /* Red color */
+    font-weight: bold;
+}

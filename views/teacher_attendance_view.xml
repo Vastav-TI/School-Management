@@ -1,0 +1,61 @@
+<odoo>
+    <!-- Form View -->
+   <record id="view_teacher_attendance_form" model="ir.ui.view">
+        <field name="name">teacher.attendance.form</field>
+        <field name="model">teacher.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Teacher Attendance">
+                <sheet>
+                    <group>
+                        <field name="teacher_id"/>
+                        <field name="date"/>
+                        <field name="checkin1"/>
+                        <field name="checkin2" readonly="1"/>
+                        <field name="checkout1"/>
+                        <field name="checkout2" readonly="1"/>
+                        <field name="total_hours" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="view_teacher_attendance_calendar" model="ir.ui.view">
+        <field name="name">teacher.attendance.calendar</field>
+        <field name="model">teacher.attendance</field>
+        <field name="arch" type="xml">
+            <calendar string="Teacher Attendance" date_start="checkin2" date_stop="checkout2">
+                <field name="teacher_id"/>
+                <field name="total_hours"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_teacher_attendance_tree" model="ir.ui.view">
+        <field name="name">teacher.attendance.tree</field>
+        <field name="model">teacher.attendance</field>
+        <field name="arch" type="xml">
+            <tree string="Teacher Attendance">
+                <field name="teacher_id"/>
+                <field name="date"/>
+                <field name="checkin1"/>
+                <field name="checkin2"/>
+                <field name="checkout1"/>
+                <field name="checkout2"/>
+                <field name="total_hours"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Action -->
+    <record id="action_teacher_attendance" model="ir.actions.act_window">
+        <field name="name">Teacher Attendance</field>
+        <field name="res_model">teacher.attendance</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_id" ref="view_teacher_attendance_tree"/>
+        <field name="context">{}</field>
+    </record>
+</odoo>

@@ -54,7 +54,7 @@
 </record>
 
     <!-- Student Kanban View -->
-    <record id="view_student_kanban" model="ir.ui.view">
+   <record id="view_student_kanban" model="ir.ui.view">
         <field name="name">student.kanban</field>
         <field name="model">school.student</field>
         <field name="arch" type="xml">
@@ -68,15 +68,15 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click o_kanban_record">
-                            <div class="oe_kanban_details">
+                            <div class="oe_kanban_details" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                                 <div class="oe_kanban_content">
-                                    <strong><field name="name"/></strong>
-                                    <div><field name="student_id"/></div>
-                                    <div><field name="class_id"/></div>
-                                    <div><field name="gender"/></div>
-                                    <div><field name="admission_date"/></div>
-                                    <div><field name="birth_date"/></div>
-                                    <div><field name="age"/></div>
+                                    <strong style="display: block; margin-bottom: 5px; font-size: 16px; color: #333;">Name: <field name="name"/></strong>
+                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Student ID: <field name="student_id"/></div>
+                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Class: <field name="class_id"/></div>
+                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Gender: <field name="gender"/></div>
+                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Admission Date: <field name="admission_date"/></div>
+                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Birth Date: <field name="birth_date"/></div>
+                                    <div style="font-size: 14px; color: #555;">Age: <field name="age"/></div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,6 @@
             </kanban>
         </field>
     </record>
-
     <!-- Action for Student List, Form, and Kanban -->
     <record id="action_student_list" model="ir.actions.act_window">
         <field name="name">Students</field>

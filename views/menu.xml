@@ -24,4 +24,5 @@
               name="Student Grades"
               parent="menu_school_root"
               action="action_student_grade"/>
+    <menuitem id="menu_school_teacher_Attendance" name="Teacher Attendance" parent="menu_school_root" action="action_teacher_attendance" /> 
 </odoo>

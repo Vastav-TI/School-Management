@@ -45,11 +45,72 @@
         </field>
     </record>
 
+
+    <!-- kanban view for teachers -->
+<record id="view_teacher_kanban" model="ir.ui.view">
+    <field name="name">school.teacher.kanban</field>
+    <field name="model">school.teacher</field>
+    <field name="arch" type="xml">
+        <kanban string="Teachers">
+            <field name="name"/>
+            <field name="age"/>
+            <field name="salary"/>
+            <field name="active"/>
+            <field name="gender"/>
+            <field name="class_id"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click o_kanban_record" style="position: relative; padding: 10px; background-color: #f9f9f9;">
+                        <!-- Image -->
+                        <img
+                            t-att-src="kanban_image('school.teacher', 'photo', record.id.raw_value)"
+                            alt="Teacher Photo"
+                            style="
+                                width: 180px;
+                                height: 180px;
+                                object-fit: cover;
+                                border-radius: 10px;
+                                position: absolute;
+                                top: 10px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            "
+                        />
+                        <!-- Content -->
+                        <div class="oe_kanban_content" style="margin-top: 200px;">
+                            <div style="float: left; width: 50%;">
+                                <strong>Name:</strong> <field name="name"/><br/>
+                                <strong>Age:</strong> <field name="age"/><br/>
+                                <strong>Salary:</strong> <field name="salary"/><br/>
+                            </div>
+                            <div style="float: right; width: 50%;">
+                                <strong>Gender:</strong> <field name="gender"/><br/>
+                                <strong>Class:</strong> <field name="class_id"/><br/>
+                                <strong>Active:</strong> 
+                                <t t-if="record.active.raw_value">
+                                    <button class="btn btn-success btn-sm">Active</button>
+                                </t>
+                                <t t-else="">
+                                    <button class="btn btn-danger btn-sm">Inactive</button>
+                                </t>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+            <kanban quick_create="0"/>
+        </kanban>
+    </field>
+</record>
+
+
+
     <!-- Teacher Action -->
     <record id="action_teacher_list" model="ir.actions.act_window">
         <field name="name">Teachers</field>
         <field name="res_model">school.teacher</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
         <field name="view_id" ref="view_teacher_tree"/>
     </record>
 </odoo>
