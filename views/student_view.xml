@@ -21,71 +21,97 @@
     </record>
 
     <!-- Student Form View -->
-    <record id="view_student_form" model="ir.ui.view">
+ <record id="view_student_form" model="ir.ui.view">
     <field name="name">student.form</field>
     <field name="model">school.student</field>
     <field name="arch" type="xml">
         <form string="Student">
             <sheet>
-                <group>
-                    <group>
-                        <field name="name" placeholder="Enter student name"/>
-                        <field name="student_id" placeholder="Enter student ID"/>
-                        <field name="birth_date" placeholder="Enter birth date"/>
-                        <field name="gender" placeholder="Select gender"/>
-                        <field name="admission_date" placeholder="Enter admission date"/>
-                        <field name="class_id" placeholder="Select class"/>
-                    </group>
-                    <group>
-                        <field name="email" placeholder="Enter email"/>
-                        <field name="phone" placeholder="Enter phone number"/>
-                    </group>
-                    <group>
-                        <field name="address" placeholder="Enter address"/>
-                    </group>
-                    <group>
-                        <field name="guardian_name" placeholder="Enter guardian name"/>
-                        <field name="guardian_phone" placeholder="Enter guardian phone number"/>
-                    </group>
-                </group>
+                <notebook>
+                    <!-- General Information Page -->
+                    <page string="General Information">
+                        <group>
+                            <field name="name" placeholder="Enter student name"/>
+                            <field name="student_id" placeholder="Enter student ID"/>
+                            <field name="birth_date" placeholder="Enter birth date"/>
+                            <field name="gender" placeholder="Select gender"/>
+                            <field name="admission_date" placeholder="Enter admission date"/>
+                            <field name="class_id" placeholder="Select class"/>
+                        </group>
+                    </page>
+
+                    <!-- Contact Information Page -->
+                    <page string="Contact Information">
+                        <group>
+                            <field name="email" placeholder="Enter email"/>
+                            <field name="phone" placeholder="Enter phone number"/>
+                        </group>
+                        <group>
+                            <field name="address" placeholder="Enter address"/>
+                        </group>
+                    </page>
+
+                    <!-- Guardian Details Page -->
+                    <page string="Guardian Details">
+                        <group>
+                            <field name="guardian_name" placeholder="Enter guardian name"/>
+                            <field name="guardian_phone" placeholder="Enter guardian phone number"/>
+                        </group>
+                    </page>
+                </notebook>
             </sheet>
         </form>
     </field>
 </record>
 
     <!-- Student Kanban View -->
-   <record id="view_student_kanban" model="ir.ui.view">
-        <field name="name">student.kanban</field>
-        <field name="model">school.student</field>
-        <field name="arch" type="xml">
-            <kanban string="Students">
-                <field name="name"/>
-                <field name="student_id"/>
-                <field name="class_id"/>
-                <field name="birth_date"/>
-                <field name="gender"/>
-                <field name="admission_date"/>
-                <templates>
-                    <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click o_kanban_record">
-                            <div class="oe_kanban_details" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                                <div class="oe_kanban_content">
-                                    <strong style="display: block; margin-bottom: 5px; font-size: 16px; color: #333;">Name: <field name="name"/></strong>
-                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Student ID: <field name="student_id"/></div>
-                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Class: <field name="class_id"/></div>
-                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Gender: <field name="gender"/></div>
-                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Admission Date: <field name="admission_date"/></div>
-                                    <div style="margin-bottom: 5px; font-size: 14px; color: #555;">Birth Date: <field name="birth_date"/></div>
-                                    <div style="font-size: 14px; color: #555;">Age: <field name="age"/></div>
+<record id="view_student_kanban" model="ir.ui.view">
+    <field name="name">student.kanban</field>
+    <field name="model">school.student</field>
+    <field name="arch" type="xml">
+        <kanban string="Students">
+            <field name="name"/>
+            <field name="student_id"/>
+            <field name="class_id"/>
+            <field name="birth_date"/>
+            <field name="gender"/>
+            <field name="admission_date"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click o_kanban_record">
+                        <div class="oe_kanban_details" style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <div class="oe_kanban_content" style="background-color: #ffffff; padding: 10px;">
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="display: block; font-size: 16px; color: #fff;">Name: <field name="name"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="font-size: 14px; color: #fff;">Student ID: <field name="student_id"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="font-size: 14px; color: #fff;">Class: <field name="class_id"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="font-size: 14px; color: #fff;">Gender: <field name="gender"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="font-size: 14px; color: #fff;">Admission Date: <field name="admission_date"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px; margin-bottom: 5px;">
+                                    <strong style="font-size: 14px; color: #fff;">Birth Date: <field name="birth_date"/></strong>
+                                </div>
+                                <div style="background-color: #6a5acd; padding: 10px;">
+                                    <strong style="font-size: 14px; color: #fff;">Age: <field name="age"/></strong>
                                 </div>
                             </div>
                         </div>
-                    </t>
-                </templates>
-                <kanban quick_create="0"/>
-            </kanban>
-        </field>
-    </record>
+                    </div>
+                </t>
+            </templates>
+            <kanban quick_create="0"/>
+        </kanban>
+    </field>
+</record>
+
     <!-- Action for Student List, Form, and Kanban -->
     <record id="action_student_list" model="ir.actions.act_window">
         <field name="name">Students</field>

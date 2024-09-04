@@ -60,41 +60,32 @@
             <field name="class_id"/>
             <templates>
                 <t t-name="kanban-box">
-                    <div t-attf-class="oe_kanban_global_click o_kanban_record" style="position: relative; padding: 10px; background-color: #f9f9f9;">
+                    <div t-attf-class="oe_kanban_global_click o_kanban_record" 
+                         style="background-color:honeydew; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
                         <!-- Image -->
                         <img
                             t-att-src="kanban_image('school.teacher', 'photo', record.id.raw_value)"
                             alt="Teacher Photo"
                             style="
-                                width: 180px;
-                                height: 180px;
-                                object-fit: cover;
-                                border-radius: 10px;
-                                position: absolute;
-                                top: 10px;
-                                left: 50%;
-                                transform: translateX(-50%);
+                                width: 200px;
+                                height: 200px;
+                                object-fit: contain;
+                                margin-bottom: 10px;
                             "
                         />
                         <!-- Content -->
-                        <div class="oe_kanban_content" style="margin-top: 200px;">
-                            <div style="float: left; width: 50%;">
-                                <strong>Name:</strong> <field name="name"/><br/>
-                                <strong>Age:</strong> <field name="age"/><br/>
-                                <strong>Salary:</strong> <field name="salary"/><br/>
-                            </div>
-                            <div style="float: right; width: 50%;">
-                                <strong>Gender:</strong> <field name="gender"/><br/>
-                                <strong>Class:</strong> <field name="class_id"/><br/>
-                                <strong>Active:</strong> 
-                                <t t-if="record.active.raw_value">
-                                    <button class="btn btn-success btn-sm">Active</button>
-                                </t>
-                                <t t-else="">
-                                    <button class="btn btn-danger btn-sm">Inactive</button>
-                                </t>
-                            </div>
-                            <div style="clear: both;"></div>
+                        <div class="oe_kanban_content" style="width: 100%;background-color: #b4eab4;">
+                            <strong>Name:</strong> <field name="name"/><br/>
+                            <strong>Age:</strong> <field name="age"/><br/>
+                            <strong>Salary:</strong> <field name="salary"/><br/>
+                            <strong>Gender:</strong> <field name="gender"/><br/>
+                            <strong>Class:</strong> <field name="class_id"/><br/>
+                            <t t-if="record.active.raw_value">
+                                <button class="btn btn-success btn-sm">Active</button>
+                            </t>
+                            <t t-else="">
+                                <button class="btn btn-danger btn-sm">Inactive</button>
+                            </t>
                         </div>
                     </div>
                 </t>
@@ -103,6 +94,8 @@
         </kanban>
     </field>
 </record>
+
+
 
 
 
