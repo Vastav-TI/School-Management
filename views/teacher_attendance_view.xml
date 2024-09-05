@@ -6,6 +6,10 @@
         <field name="arch" type="xml">
             <form string="Teacher Attendance">
                 <sheet>
+                    <header>
+                        <button class='btn-success oe_highlight' name="action_check_in" type="object" string="Check In" />
+                        <button class='btn-danger oe_highlight' name="action_check_out" type="object" string="Check Out" />
+                    </header>
                     <group>
                         <field name="teacher_id"/>
                         <field name="date"/>

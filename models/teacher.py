@@ -9,6 +9,8 @@ class Teacher(models.Model):
     age = fields.Integer(string='Age',required=True)
     salary = fields.Float(string='Salary',required=True)
     active = fields.Boolean(string='Active', default=True)
+    # active = fields.Selection([('active', 'Active'), ('inactive', 'Inactive')],string='Active', default='active')
+
     subject_ids = fields.Many2many(
         'school.subject',
         'school_teacher_subject_rel',  # The name of the relationship table

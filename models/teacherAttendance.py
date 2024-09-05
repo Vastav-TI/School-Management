@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from datetime import datetime
-
+import logging
+from odoo.exceptions import UserError
 class TeacherAttendance(models.Model):
     _name = 'teacher.attendance'
     _description = 'Teacher Attendance'
@@ -30,27 +31,65 @@ class TeacherAttendance(models.Model):
             else:
                 record.total_hours = 0.0
 
-    @api.onchange('checkin1')
-    def _onchange_checkin1(self):
-        if self.checkin1 == 'check_in':
-            self.checkin2 = datetime.now()
+    # @api.onchange('checkin1')
+    # def _onchange_checkin1(self):
+    #     if self.checkin1 == 'check_in':
+    #         self.checkin2 = datetime.now()
 
-    @api.onchange('checkout1')
-    def _onchange_checkout1(self):
-        if self.checkout1 == 'check_out':
-            self.checkout2 = datetime.now()
+    # @api.onchange('checkout1')
+    # def _onchange_checkout1(self):
+    #     if self.checkout1 == 'check_out':
+    #         self.checkout2 = datetime.now()
 
-    @api.model
-    def create(self, vals):
-        if vals.get('checkin1') == 'check_in':
-            vals['checkin2'] = datetime.now()
-        if vals.get('checkout1') == 'check_out':
-            vals['checkout2'] = datetime.now()
-        return super(TeacherAttendance, self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     if vals.get('checkin1') == 'check_in':
+    #         vals['checkin2'] = datetime.now()
+    #     if vals.get('checkout1') == 'check_out':
+    #         vals['checkout2'] = datetime.now()
+    #     return super(TeacherAttendance, self).create(vals)
 
-    def write(self, vals):
-        if 'checkin1' in vals and vals['checkin1'] == 'check_in':
-            vals['checkin2'] = datetime.now()
-        if 'checkout1' in vals and vals['checkout1'] == 'check_out':
-            vals['checkout2'] = datetime.now()
-        return super(TeacherAttendance, self).write(vals)
+    # def write(self, vals):
+    #     if 'checkin1' in vals and vals['checkin1'] == 'check_in':
+    #         vals['checkin2'] = datetime.now()
+    #     if 'checkout1' in vals and vals['checkout1'] == 'check_out':
+    #         vals['checkout2'] = datetime.now()
+    #     return super(TeacherAttendance, self).write(vals)
+    # def action_check_in(self):
+    #     _logger=logging.getLogger(__name__)
+    #     _logger.info(f"self = {self}")
+    #     self.checkin1 = 'check_in'
+    #     self.checkin2 = datetime.now()
+    
+    def action_check_in(self):
+        for record in self:
+            # Search for existing records for the same teacher and date
+            existing_record = self.search([
+                ('teacher_id', '=', record.teacher_id.id),
+                ('date', '=', record.date),
+                ('checkin1', '=', 'check_in')
+            ], limit=1)
+
+            if existing_record:
+                raise UserError('You have already checked in for today.')
+            
+            record.checkin1 = 'check_in'
+            record.checkin2 = fields.Datetime.now()
+    
+    def action_check_out(self):
+        for record in self:
+            # Search for existing records for the same teacher and date
+            existing_record = self.search([
+                ('teacher_id', '=', record.teacher_id.id),
+                ('date', '=', record.date),
+                ('checkout1', '=', 'check_out')
+            ], limit=1)
+
+            if existing_record:
+                raise UserError('You have already checked out for today.')
+            
+            record.checkout1 = 'check_out'
+            record.checkout2 = fields.Datetime.now()
+    # def action_check_out(self):
+    #     self.checkout1 = 'check_out'
+    #     self.checkout2 = datetime.now()

@@ -15,7 +15,8 @@
                             <field name="name"/>
                             <field name="age"/>
                             <field name="salary" />
-                            <field name="active"/>
+                            <field name="active" widget="toggle"/>
+                            <!-- <field name="active" widget="badge" decoration-success="active" decoration-danger="active == False"/> -->
                         </group>
                         <group>
                             <field name="gender"/>
@@ -38,7 +39,8 @@
                 <field name="name"/>
                 <field name="age"/>
                 <field name="salary" />
-                <field name="active"/>
+                <field name="active" widget="boolean_toggle" />
+                <!-- <field name="active"  decoration-success="active" decoration-danger="active==False" widget="badge"/> -->
                 <field name="gender"/>
                 <field name="class_id"/>
             </tree>
@@ -61,30 +63,51 @@
             <templates>
                 <t t-name="kanban-box">
                     <div t-attf-class="oe_kanban_global_click o_kanban_record" 
-                         style="background-color:honeydew; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                         style="background-color:#a4e7f2; padding: 20px; box-sizing: border-box; height: 460px;">
                         <!-- Image -->
-                        <img
-                            t-att-src="kanban_image('school.teacher', 'photo', record.id.raw_value)"
-                            alt="Teacher Photo"
-                            style="
-                                width: 200px;
-                                height: 200px;
-                                object-fit: contain;
-                                margin-bottom: 10px;
-                            "
-                        />
+                        <div style="text-align: center; background-color:#a4e7f2; margin-bottom: 10px; height:200px;">
+                            <img
+                                t-att-src="kanban_image('school.teacher', 'photo', record.id.raw_value)"
+                                alt="Teacher Photo"
+                                style="
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                "
+                            />
+                        </div>
                         <!-- Content -->
-                        <div class="oe_kanban_content" style="width: 100%;background-color: #b4eab4;">
+                        <div class="oe_kanban_content" 
+                             style="background-color: #bac6ea; padding: 10px; height: 200px; overflow-y: auto;">
+                            <div style="margin-bottom: 10px">
                             <strong>Name:</strong> <field name="name"/><br/>
+                            </div>
+                            
+                            <div style="margin-bottom: 10px">
                             <strong>Age:</strong> <field name="age"/><br/>
+                            </div>
+                            
+                            <div style="margin-bottom: 10px">
                             <strong>Salary:</strong> <field name="salary"/><br/>
+                            </div>
+                            
+                            <div style="margin-bottom: 10px">
                             <strong>Gender:</strong> <field name="gender"/><br/>
+                            </div>
+                            
+                            <div style="margin-bottom: 10px">
                             <strong>Class:</strong> <field name="class_id"/><br/>
+                            </div>
+                            
                             <t t-if="record.active.raw_value">
-                                <button class="btn btn-success btn-sm">Active</button>
+                                <div style="text-align: center;">
+                                    <button class="btn btn-success btn-sm">Active</button>
+                                </div>
                             </t>
                             <t t-else="">
-                                <button class="btn btn-danger btn-sm">Inactive</button>
+                                <div style="text-align: center;">
+                                    <button class="btn btn-danger btn-sm">Inactive</button>
+                                </div>
                             </t>
                         </div>
                     </div>
