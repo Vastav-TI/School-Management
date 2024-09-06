@@ -12,3 +12,10 @@ class Subject(models.Model):
         'teacher_id',  # Field in the relationship table referencing the teacher
         string='Teachers'
     )
+    class_ids = fields.Many2many(
+        'school.studentclass',
+        'school_studentclass_subject_rel',  # The name of the relationship table
+        'subject_id',  # Field referencing the subject
+        'class_id',  # Field referencing the class
+        string='Classes'
+    )
