@@ -8,7 +8,7 @@ class StudentGrade(models.Model):
     name = fields.Char(string='Name')  # Optional field for the record name
     class_id = fields.Many2one('school.studentclass', string='Class', required=True)
     student_grade_line_ids = fields.One2many('school.student.grade.line', 'student_grade_id', string='Student Grades')
-
+    
     @api.onchange('class_id')
     def _onchange_class_id(self):
         if self.class_id:
@@ -29,7 +29,12 @@ class StudentGrade(models.Model):
             for student in students:
                 student_grades.append((0, 0, {
                     'student_id': student.id,
-                    'name': student.name
+                    'name': student.name,
+                    'subject1_id':student.class_id.subject_ids[0],
+                    'subject2_id':student.class_id.subject_ids[1],
+                    'subject3_id':student.class_id.subject_ids[2],
+                    'subject4_id':student.class_id.subject_ids[3],
+                    'subject5_id':student.class_id.subject_ids[4]
                 }))
             _logger.info(f"student_grades = {student_grades}")
             self.student_grade_line_ids = student_grades

@@ -12,7 +12,16 @@
                             <tree editable="bottom">
                                 <field name="student_id"/>
                                 <field name="s_id"/>
-                                <field name="grade"/>
+                                <field name="subject1_id"/>
+                                <field name="marks_subject1"/>
+                                <field name="subject2_id"/>
+                                <field name="marks_subject2"/>
+                                <field name="subject3_id"/>
+                                <field name="marks_subject3"/>
+                                <field name="subject4_id"/>
+                                <field name="marks_subject4"/>
+                                <field name="subject5_id"/>
+                                <field name="marks_subject5"/>
                             </tree>
                         </field>
                     </group>

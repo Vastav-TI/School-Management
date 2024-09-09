@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+import logging
 
 class SchoolEvent(models.Model):
     _name = 'school.event'
@@ -13,3 +14,18 @@ class SchoolEvent(models.Model):
     date_end = fields.Date(string="End Date")
     description = fields.Text(string="Description")
     active = fields.Boolean(string="Active", default=True)
+    @api.model
+    def create(self, vals):
+        # Call the default create method
+        _logger=logging.getLogger(__name__)
+        _logger.info(f"the create func ")
+        _logger.info(f"vals= {vals}")
+        if vals['description']==False:
+            vals['description']="default desc"
+        new_record=super(SchoolEvent, self).create(vals)
+        
+        for x in new_record:
+
+            _logger.info(f"records={x}")
+        
+        return new_record
