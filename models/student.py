@@ -39,32 +39,7 @@ class Student(models.Model):
             else:
                 record.age = 0  # Set age to 0 if birth_date is not set
     
-    # @api.depends('name')
-    # def _compute_student_id(self):
-    #     for record in self:
-    #         if record.student_id == 'New':
-    #             _logger=logging.getLogger(__name__)
-    #             # Get the latest student record
-    #             last_student = self.env['school.student'].search([], order='id desc', limit=1)
-
-    #             _logger.info(f"last student = {last_student}")
-    #             student_model = self.env['school.student']
-    #             students = student_model.browse(last_student[0])
-    #             if last_student:
-    #                 last_id = last_student.student_id
-    #                 _logger.info(f"last id  = {last_id}")
-
-    #                 last_num = int(last_id[3:]) if last_id else 0  # Extract numeric part from 'STU999'
-    #             else:
-    #                 last_num = 0
-
-    #             # Increment the number
-    #             new_num = last_num + 1
-
-    #             # Generate the new ID with dynamic length
-    #             record.student_id = f'STU{new_num:03d}' if new_num < 1000 else f'STU{new_num}'
-    #         else:
-    #             record.student_id = record.student_id
+    
     def create_id(self):
         _logger=logging.getLogger(__name__)
         _logger.info(f"inside func ")
