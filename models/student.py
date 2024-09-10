@@ -67,7 +67,7 @@ class Student(models.Model):
     # Dummy data to be used for the student creation
         dummy_vals = {
             'name': 'Dummy Student',
-            'age': 20,
+            'birth_date': '2004-09-09',
             'email': 'dummy@student.com',
             'address':"dwarka"
         }
