@@ -127,14 +127,27 @@
             <xpath expr="//form/sheet/group[2]/group[1]" position="inside">
                 <field name="date_of_birth"/>
             </xpath>
+            
             <!-- Add address field after the date_of_birth field -->
             <xpath expr="//field[@name='date_of_birth']" position="after">
                 <field name="address"/>
             </xpath>
+            
             <xpath expr="//form/sheet/group[2]/group[1]/field[@name='address']" position="after">
                 <xpath expr="//field[@name='salary']" position="move"/>
             </xpath>
 
+            <xpath expr="//form/sheet/group[2]/group[2]/field[@name='subject_ids']" position="after">
+                <field name="email"/>
+            </xpath>
+            
+            <xpath expr="//form/sheet/group[2]/group[2]/field[@name='email']" position="after">
+                <field name="phone"/>
+            </xpath>
+            
+            <xpath expr="//form/sheet/group[2]/group[1]/field[@name='date_of_birth']" position="after">
+                <field name="years_of_experience"/>
+            </xpath>
         </field>
     </record>
 

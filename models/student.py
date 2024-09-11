@@ -10,7 +10,7 @@ class Student(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string='Gender')
     student_id = fields.Char(string='Student ID', required=True, copy=False, default=lambda self: ('New'),compute='_compute_student_id', store=True)
     admission_date =fields.Date(string="Admission Date",required=True,default = lambda self: date.today())
-    email = fields.Char(string='Email', required=True)
+    email = fields.Char(string='Email')
     phone = fields.Char(string='Phone Number')
     address = fields.Text(string='Address',required=True)
     guardian_name = fields.Char(string='Guardian Name')
@@ -39,6 +39,10 @@ class Student(models.Model):
             else:
                 record.age = 0  # Set age to 0 if birth_date is not set
     
+    @api.onchange('name')
+    def compute_email(self):
+        if self.name:
+            self.email=self.name + "@gmail.com"
     
     def create_id(self):
         _logger=logging.getLogger(__name__)
@@ -68,7 +72,6 @@ class Student(models.Model):
         dummy_vals = {
             'name': 'Dummy Student',
             'birth_date': '2004-09-09',
-            'email': 'dummy@student.com',
             'address':"dwarka"
         }
         _logger=logging.getLogger(__name__)
