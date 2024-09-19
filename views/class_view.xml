@@ -25,6 +25,7 @@
                         <field name="name"/>
                         <field name="strength"/>
                         <field name="status"/>
+                        <field name="email"/>
                     </group>
                     <group>
                         <field name="student_ids"/>
